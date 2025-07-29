@@ -276,67 +276,67 @@ class _CanvasSideBarState extends State<CanvasSideBar> {
                       child: const Text('Clear'),
                       onPressed: () => undoRedoStack.clear(),
                     ),
-                    TextButton(
-                      onPressed: () async {
-                        if (widget.backgroundImage.value != null) {
-                          widget.backgroundImage.value = null;
-                        } else {
-                          widget.backgroundImage.value = await _getImage;
-                        }
-                      },
-                      child: Text(
-                        widget.backgroundImage.value == null
-                            ? 'Add Background'
-                            : 'Remove Background',
-                      ),
-                    ),
-                    TextButton(
-                      child: const Text('Fork on Github'),
-                      onPressed: () => _launchUrl(kGithubRepo),
-                    ),
+                    // TextButton(
+                    //   onPressed: () async {
+                    //     if (widget.backgroundImage.value != null) {
+                    //       widget.backgroundImage.value = null;
+                    //     } else {
+                    //       widget.backgroundImage.value = await _getImage;
+                    //     }
+                    //   },
+                    //   child: Text(
+                    //     widget.backgroundImage.value == null
+                    //         ? 'Add Background'
+                    //         : 'Remove Background',
+                    //   ),
+                    // ),
+                    // TextButton(
+                    //   child: const Text('Fork on Github'),
+                    //   onPressed: () => _launchUrl(kGithubRepo),
+                    // ),
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Export',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const Divider(),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 140,
-                      child: TextButton(
-                        child: const Text('Export PNG'),
-                        onPressed: () async {
-                          Uint8List? pngBytes = await getBytes();
-                          if (pngBytes != null) saveFile(pngBytes, 'png');
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      width: 140,
-                      child: TextButton(
-                        child: const Text('Export JPEG'),
-                        onPressed: () async {
-                          Uint8List? pngBytes = await getBytes();
-                          if (pngBytes != null) saveFile(pngBytes, 'jpeg');
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                // const Text(
+                //   'Export',
+                //   style: TextStyle(fontWeight: FontWeight.bold),
+                // ),
+                // const Divider(),
+                // Row(
+                //   children: [
+                //     SizedBox(
+                //       width: 140,
+                //       child: TextButton(
+                //         child: const Text('Export PNG'),
+                //         onPressed: () async {
+                //           Uint8List? pngBytes = await getBytes();
+                //           if (pngBytes != null) saveFile(pngBytes, 'png');
+                //         },
+                //       ),
+                //     ),
+                //     SizedBox(
+                //       width: 140,
+                //       child: TextButton(
+                //         child: const Text('Export JPEG'),
+                //         onPressed: () async {
+                //           Uint8List? pngBytes = await getBytes();
+                //           if (pngBytes != null) saveFile(pngBytes, 'jpeg');
+                //         },
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 // add about me button or follow buttons
-                const Divider(),
-                Center(
-                  child: GestureDetector(
-                    onTap: () => _launchUrl('https://github.com/Sahid-321'),
-                    child: const Text(
-                      'Made with 💙 by sahid jamal',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                ),
+                // const Divider(),
+                // Center(
+                //   child: GestureDetector(
+                //     onTap: () => _launchUrl('https://github.com/Sahid-321'),
+                //     child: const Text(
+                //       'Made with 💙 by sahid jamal',
+                //       style: TextStyle(fontSize: 12),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           );
