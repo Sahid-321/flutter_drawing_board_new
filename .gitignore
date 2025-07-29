@@ -1,0 +1,66 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub/
+build/
+flutter_drawing_board_new.iml
+*.iml
+*.lock
+
+# Android related
+/app/build/
+/local.properties
+/.gradle/
+/captures/
+/android/key.properties
+
+# iOS related
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/GeneratedPluginRegistrant.*
+ios/Runner.xcworkspace/
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Runner/Assets.xcassets/
+ios/Runner/Info.plist
+
+# macOS related
+macos/Flutter/ephemeral/
+macos/Pods/
+macos/.symlinks/
+macos/Flutter/GeneratedPluginRegistrant.*
+macos/Runner.xcworkspace/
+macos/Runner/GeneratedPluginRegistrant.*
+
+# Web related
+web/.dart_tool/
+web/build/
+
+# Windows related
+windows/Flutter/ephemeral/
+windows/.symlinks/
+windows/Flutter/GeneratedPluginRegistrant.*
+
+# Linux related
+linux/Flutter/ephemeral/
+linux/.symlinks/
+linux/Flutter/GeneratedPluginRegistrant.*
+
+# VS Code related
+.vscode/
+
+# Others
+*.log
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+.idea/
+
+# Exclude screenshots and assets from ignore
+!assets/
+!screenshots/
