@@ -42,13 +42,14 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   CurrentStrokeValueNotifier get _currentStroke =>
       widget.currentStrokeListenable;
 
+  bool _isDrawing = false;
+
   void _onPointerDown(PointerDownEvent event) {
     final box = context.findRenderObject() as RenderBox?;
     if (box == null) return;
     final offset = box.globalToLocal(event.position);
-    // convert the offset to standard size so that it
-    // can be scaled back to the device size
     final standardOffset = offset.scaleToStandard(box.size);
+    _isDrawing = true;
     _currentStroke.startStroke(
       standardOffset,
       color: strokeColor,
@@ -62,11 +63,10 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   }
 
   void _onPointerMove(PointerMoveEvent event) {
+    if (!_isDrawing) return;
     final box = context.findRenderObject() as RenderBox?;
     if (box == null) return;
     final offset = box.globalToLocal(event.position);
-    // convert the offset to standard size so that it
-    // can be scaled back to the device size
     final standardOffset = offset.scaleToStandard(box.size);
     _currentStroke.addPoint(standardOffset);
     widget.onDrawingStrokeChanged?.call(_currentStroke.value);
@@ -74,6 +74,7 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
 
   void _onPointerUp(PointerUpEvent event) {
     if (!_currentStroke.hasStroke) return;
+    _isDrawing = false;
     _strokes.value = List<Stroke>.from(_strokes.value)
       ..add(_currentStroke.value!);
     _currentStroke.clear();
@@ -364,5 +365,5 @@ class _DrawingCanvasPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }

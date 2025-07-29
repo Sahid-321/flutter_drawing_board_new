@@ -82,6 +82,16 @@ class _DrawingPageState extends State<DrawingPage>
                 );
               },
             ),
+            if (animationController.value > 0)
+              Positioned.fill(
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    animationController.reverse();
+                  },
+                  child: Container(color: Colors.transparent),
+                ),
+              ),
             Positioned(
               top: kToolbarHeight + 10,
               child: SlideTransition(
