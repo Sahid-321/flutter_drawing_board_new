@@ -108,30 +108,30 @@ class _CanvasSideBarState extends State<CanvasSideBar> {
                           widget.drawingTool.value = DrawingTool.pencil,
                       tooltip: 'Pencil',
                     ),
-                    _IconBox(
-                      selected: widget.drawingTool.value == DrawingTool.line,
-                      onTap: () => widget.drawingTool.value = DrawingTool.line,
-                      tooltip: 'Line',
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 22,
-                            height: 2,
-                            color: widget.drawingTool.value == DrawingTool.line
-                                ? Colors.grey[900]
-                                : Colors.grey,
-                          ),
-                        ],
-                      ),
-                    ),
-                    _IconBox(
-                      iconData: Icons.hexagon_outlined,
-                      selected: widget.drawingTool.value == DrawingTool.polygon,
-                      onTap: () =>
-                          widget.drawingTool.value = DrawingTool.polygon,
-                      tooltip: 'Polygon',
-                    ),
+                    // _IconBox(
+                    //   selected: widget.drawingTool.value == DrawingTool.line,
+                    //   onTap: () => widget.drawingTool.value = DrawingTool.line,
+                    //   tooltip: 'Line',
+                    //   child: Column(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Container(
+                    //         width: 22,
+                    //         height: 2,
+                    //         color: widget.drawingTool.value == DrawingTool.line
+                    //             ? Colors.grey[900]
+                    //             : Colors.grey,
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    // _IconBox(
+                    //   iconData: Icons.hexagon_outlined,
+                    //   selected: widget.drawingTool.value == DrawingTool.polygon,
+                    //   onTap: () =>
+                    //       widget.drawingTool.value = DrawingTool.polygon,
+                    //   tooltip: 'Polygon',
+                    // ),
                     _IconBox(
                       iconData: FontAwesomeIcons.eraser,
                       selected: widget.drawingTool.value == DrawingTool.eraser,
@@ -139,27 +139,27 @@ class _CanvasSideBarState extends State<CanvasSideBar> {
                           widget.drawingTool.value = DrawingTool.eraser,
                       tooltip: 'Eraser',
                     ),
-                    _IconBox(
-                      iconData: FontAwesomeIcons.square,
-                      selected: widget.drawingTool.value == DrawingTool.square,
-                      onTap: () =>
-                          widget.drawingTool.value = DrawingTool.square,
-                      tooltip: 'Square',
-                    ),
-                    _IconBox(
-                      iconData: FontAwesomeIcons.circle,
-                      selected: widget.drawingTool.value == DrawingTool.circle,
-                      onTap: () =>
-                          widget.drawingTool.value = DrawingTool.circle,
-                      tooltip: 'Circle',
-                    ),
-                    _IconBox(
-                      iconData: FontAwesomeIcons.ruler,
-                      selected: widget.showGrid.value,
-                      onTap: () =>
-                          widget.showGrid.value = !widget.showGrid.value,
-                      tooltip: 'Guide Lines',
-                    ),
+                    // _IconBox(
+                    //   iconData: FontAwesomeIcons.square,
+                    //   selected: widget.drawingTool.value == DrawingTool.square,
+                    //   onTap: () =>
+                    //       widget.drawingTool.value = DrawingTool.square,
+                    //   tooltip: 'Square',
+                    // ),
+                    // _IconBox(
+                    //   iconData: FontAwesomeIcons.circle,
+                    //   selected: widget.drawingTool.value == DrawingTool.circle,
+                    //   onTap: () =>
+                    //       widget.drawingTool.value = DrawingTool.circle,
+                    //   tooltip: 'Circle',
+                    // ),
+                    // _IconBox(
+                    //   iconData: FontAwesomeIcons.ruler,
+                    //   selected: widget.showGrid.value,
+                    //   onTap: () =>
+                    //       widget.showGrid.value = !widget.showGrid.value,
+                    //   tooltip: 'Guide Lines',
+                    // ),
                   ],
                 ),
                 const SizedBox(height: 8),

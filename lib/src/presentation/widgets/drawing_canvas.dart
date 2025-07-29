@@ -1,5 +1,7 @@
+
 import 'dart:math';
 import 'dart:ui' as ui;
+import 'dart:ui'; // For Vertices
 
 import 'package:flutter/material.dart';
 import 'package:flutter_drawing_board/src/src.dart';
@@ -190,19 +192,14 @@ class _DrawingCanvasPainter extends CustomPainter {
 
       // Pencil stroke
       if (stroke is NormalStroke) {
-        final path = _getStrokePath(stroke, size);
-
-        // If the path only has one line, draw a dot.
         if (stroke.points.length == 1) {
-          // scale the point to the standard size
           final center = stroke.points.first.scaleFromStandard(size);
           final radius = strokeSize / 2;
           canvas.drawCircle(center, radius, paint..style = PaintingStyle.fill);
-
           continue;
         }
-
-        canvas.drawPath(path, paint);
+        final scaledPoints = stroke.points.map((p) => p.scaleFromStandard(size)).toList();
+        canvas.drawPoints(PointMode.polygon, scaledPoints, paint);
         continue;
       }
 
@@ -210,29 +207,6 @@ class _DrawingCanvasPainter extends CustomPainter {
       if (stroke is EraserStroke) {
         final path = _getStrokePath(stroke, size);
         canvas.drawPath(path, paint..color = backgroundColor);
-        continue;
-      }
-
-      // Line stroke.
-      if (stroke is LineStroke) {
-        // scale the points to the standard size
-        final firstPoint = points.first.scaleFromStandard(size);
-        final lastPoint = points.last.scaleFromStandard(size);
-        canvas.drawLine(firstPoint, lastPoint, paint);
-        continue;
-      }
-
-      if (stroke is CircleStroke) {
-        // scale the points to the standard size
-        final firstPoint = points.first.scaleFromStandard(size);
-        final lastPoint = points.last.scaleFromStandard(size);
-        final rect = Rect.fromPoints(firstPoint, lastPoint);
-
-        if (stroke.filled) {
-          paint.style = PaintingStyle.fill;
-        }
-
-        canvas.drawOval(rect, paint);
         continue;
       }
 
